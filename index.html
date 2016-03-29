@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>localStorage - iFrame authority</title>
+    <script type="application/javascript">
+        function loadNewWidget(id) {
+            document.getElementById(id).contentWindow.location = 'widget.html';
+        }
+
+        function destroyWidget(id) {
+            document.getElementById(id).contentWindow.location = 'about:blank';
+        }
+    </script>
+</head>
+<body>
+    <h2>localStorage - iFrame authority</h2>
+    <br/>
+    <iframe id="iframe1" height="250" width="400" src="widget.html"></iframe>
+    <div>
+        <button onclick="loadNewWidget('iframe1');">load new widget</button>
+        <button onclick="destroyWidget('iframe1');">destroy this widget</button>
+    </div>
+    <br /><br />
+    <iframe id="iframe2" height="250" width="400" src="widget.html"></iframe>
+    <div>
+        <button onclick="loadNewWidget('iframe2');">load new widget</button>
+        <button onclick="destroyWidget('iframe2');">destroy this widget</button>
+    </div>
+    <br /><br />
+    <iframe id="iframe3" height="250" width="400" src="widget.html"></iframe>
+    <div>
+        <button onclick="loadNewWidget('iframe3');">load new widget</button>
+        <button onclick="destroyWidget('iframe3');">destroy this widget</button>
+    </div>
+    <br /><br />
+</body>
+</html>

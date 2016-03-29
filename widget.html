@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="require.js"></script>
+    <script type="application/javascript">
+        window.onload = function () {
+            require(['sessionManager', 'authenticationManager'], function(sessionManager, authenticationManager) {
+                authenticationManager.init();
+                sessionManager.init(authenticationManager, true);
+            });
+        }
+    </script>
+    <title>Widget</title>
+</head>
+<body>
+    <div>
+        guid: <span id="guid" style="font-weight: bold;"></span>
+    </div>
+    <div id="log"></div>
+</body>
+</html>
