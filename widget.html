@@ -6,7 +6,10 @@
     <script type="application/javascript">
         window.onload = function () {
             require(['sessionManager', 'authenticationManager'], function(sessionManager, authenticationManager) {
-                authenticationManager.init();
+                var idpUrl = 'http://safe.thomson.com/SAML1/ssoMedium/SAML1Service';
+                var appName = 'pingtrtaqa';
+                var targetUrl = 'https://intelligencecenter.ci.thomsonreuters.com/sso/SsoRedirect/PostAuthentication';
+                authenticationManager.init(idpUrl, appName, targetUrl);
                 sessionManager.init(authenticationManager, true);
             });
         }

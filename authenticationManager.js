@@ -1,15 +1,21 @@
 define(['jquery'], function($) {
 
-    function init() {
+    var popupUrl;
 
+    function init(idpUrl, appName, targetUrl) {
+        popupUrl = idpUrl + '?app=' + appName + '&TARGET=' + encodeURIComponent(targetUrl);
     }
 
     function createSession() {
         var dfd = $.Deferred();
 
-        window.setTimeout(function() {
-            dfd.resolve();
-        }, 2000);
+        var popupWindow = window.open(popupUrl, 'SSO popup');
+        var pollTimer = window.setInterval(function() {
+            if (popupWindow.closed !== false) {
+                window.clearInterval(pollTimer);
+                dfd.resolve();
+            }
+        }, 200);
 
         return dfd.promise();
     }
